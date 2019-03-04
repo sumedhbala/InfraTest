@@ -1,4 +1,4 @@
-pipeline {
+job ("temp Job") {pipeline {
     agent any
 
     stages {
@@ -18,4 +18,5 @@ pipeline {
             }
         }
     }
+}
 }
