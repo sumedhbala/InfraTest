@@ -1,4 +1,4 @@
-import groovy.io.FileType;
+import groovy.io.FileType.FILES;
 pipeline {
     agent any
 
@@ -7,16 +7,18 @@ pipeline {
             steps {
                 echo 'Building..'
                 checkout scm
-                def list = []
+                script {
+                    def list = []
 
-                def dir = new File("jenkins/jobs/")
-                dir.eachFileRecurse (FileType.FILES) { file ->
-                    list << file
-                }
+                    def dir = new File("jenkins/jobs/")
+                    dir.eachFileRecurse (FILES) { file ->
+                        list << file
+                    }
 
-                list.each {
-                    println it.path
-                }
+                    list.each {
+                        println it.path
+                    }
+
 
             }
         }
