@@ -1,4 +1,4 @@
-import groovy.io.FileType.FILES;
+import static groovy.io.FileType.FILES;
 pipeline {
     agent any
 
